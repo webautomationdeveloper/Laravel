@@ -17,8 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', function () {
-   echo ('hello');
+Route::get('/hello/{name}/{id?}', function ($name,$id=null) {
+//    echo ('hello'.' '. $name);
+//    echo ('hello'.' '. $id);
+$data = compact('name','id');
+   return view('hello')->with($data);
 });
 
 
